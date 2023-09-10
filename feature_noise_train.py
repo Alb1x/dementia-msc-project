@@ -200,7 +200,7 @@ def modify_embeddings():
 
     for file in os.listdir(DATA_PATH + "test"):
         filePath = os.path.join(DATA_PATH + "test",file)
-        if os.path.isfile(filePath) and file.endswith(".json") and not "modified" in file:
+        if os.path.isfile(filePath) and file.endswith(".json"):
             with open(filePath) as file:
                 embedding = torch.Tensor(json.load(file))
                 modified_embedding = model(embedding).tolist()
